@@ -28,11 +28,11 @@ function generateRaw(d, s, e, n) {
             select += '<option value=\"'+n+'\">'+priority[i-1]+'</option>';
         }
     }
-    var raw = '<div class="task" id="'+ iterator +'"><div class="row"><div class="col-md-1 col-sm-1"><input type="checkbox"></div><div class="col-md-10 col-sm-10"><input type="text" class="description style form-control" value="'+ d
-    +'" /></div></div><br/><div class="row"><div class="col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1"><input type="text" class=" style datepicker form-control" value="'+ s
+    var raw = '<div class="task" id="'+ iterator +'"><div class="row"><div class="col-md-1 col-sm-1"><input type="checkbox" onclick="done('+iterator+')"></div><div class="col-md-10 col-sm-10"><input type="text" class="description style form-control" value="'+ d
+    +'" /></div></div><br/><div class="row"><div class="col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1"><input type="text" class="datepicker style form-control" value="'+ s
     +'"/></div><div class="col-md-3 col-sm-3"><input type="text" class="datepicker style form-control" value="'+e
     +'"/></div><div class="col-md-2 col-sm-2"><select class="form-control">'+select
-    +'</select></div><div class="col-md-2 col-sm-2"><button class="btn btn-danger" onclick="destroy('+iterator+')">Hapus</button></div></div></div><hr/>'
+    +'</select></div><div class="col-md-2 col-sm-2"><button class="btn btn-danger" onclick="destroy('+iterator+')">Hapus</button></div></div></div><hr/>';
     iterator++;
     return raw;
 }
@@ -42,4 +42,19 @@ function destroy(n) {
     var target = $('.tasks').find('#'+n)
 
     target.remove();
+}
+
+function done(n)    {
+    var target = $('.tasks').find('#'+n);
+    var inputs = target.find('input')
+    var itr = 1;
+    inputs.each(function(e)   {
+        if(itr > 1) {
+            var stat = $(this).attr('disabled');
+            $(this).attr('disabled',!stat);
+        }
+        itr++;
+    });
+    var select = target.find('select')
+    select.attr('disabled',!select.attr('disabled'))
 }
