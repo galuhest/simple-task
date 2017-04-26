@@ -6,16 +6,20 @@ body {
 input#title {
     font-size: 2em;
     text-align: center;
+    border:none;
+
 }
 
 input#description   {
     font-size: 1.3em;
     text-align: center;
     margin-bottom: 50px;
+    border:none;
 }
 
-input{
-    outline: none;
-    border: 0;
-    -webkit-appearance: none
+input.style {
+    border:none;
+}
+input.style:focus{
+    border:solid;
 }

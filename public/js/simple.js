@@ -28,9 +28,9 @@ function generateRaw(d, s, e, n) {
             select += '<option value=\"'+n+'\">'+priority[i-1]+'</option>';
         }
     }
-    var raw = '<div class="task" id="'+ iterator +'"><div class="row"><div class="col-md-1 col-sm-1"><input type="checkbox"></div><div class="col-md-10 col-sm-10"><input type="text" class="description form-control" value="'+ d
-    +'" /></div></div><br/><div class="row"><div class="col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1"><input type="text" class="datepicker form-control" value="'+ s
-    +'"/></div><div class="col-md-3 col-sm-3"><input type="text" class="datepicker form-control" value="'+e
+    var raw = '<div class="task" id="'+ iterator +'"><div class="row"><div class="col-md-1 col-sm-1"><input type="checkbox"></div><div class="col-md-10 col-sm-10"><input type="text" class="description style form-control" value="'+ d
+    +'" /></div></div><br/><div class="row"><div class="col-md-3 col-sm-3 col-md-offset-1 col-sm-offset-1"><input type="text" class=" style datepicker form-control" value="'+ s
+    +'"/></div><div class="col-md-3 col-sm-3"><input type="text" class="datepicker style form-control" value="'+e
     +'"/></div><div class="col-md-2 col-sm-2"><select class="form-control">'+select
     +'</select></div><div class="col-md-2 col-sm-2"><button class="btn btn-danger" onclick="destroy('+iterator+')">Hapus</button></div></div></div><hr/>'
     iterator++;
